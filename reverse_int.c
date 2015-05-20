@@ -15,10 +15,10 @@ int main() {
 
 void reverse(int n) {
 	int right_digit;
-	while (n != 0) {
+	do {
 		right_digit = n % 10;
 		printf("%i", right_digit);
 		n /= 10;
-	}
+	} while (n != 0);
 	printf("\n");
 }
