@@ -1,28 +1,28 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-void prime_num(int sequence);
+void prime_num(int limit_sequence_prime_num);
 
 int main() {
-	int sequence;
+	int limit_sequence_prime_num;
 
 	printf("---------------------------------------------------\n");
 	printf("This program displays the sequence of prime numbers\n");
 	printf("---------------------------------------------------\n");
 
-	printf("Please enter sequence: \n");
-	scanf("%i", &sequence);
+	printf("Please enter limit_sequence_prime_num: \n");
+	scanf("%i", &limit_sequence_prime_num);
 	printf("---------------------------------------------------\n");
 
-	prime_num(sequence);
+	prime_num(limit_sequence_prime_num);
 
 	return 0;
 }
 
-void prime_num(int sequence) {
+void prime_num(int limit_sequence_prime_num) {
 	bool is_prime;
 
-	for (int p = 2; p <= sequence; p++) {
+	for (int p = 2; p <= limit_sequence_prime_num; p++) {
 		is_prime = 1;
 
 		// Если больше двух и четное
