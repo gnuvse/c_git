@@ -22,18 +22,19 @@ int main() {
 void prime_num(int sequence) {
 	bool is_prime;
 
-
 	for (int p = 2; p <= sequence; p++) {
 		is_prime = 1;
 
 		// Если больше двух и четное
-        if ( (p > 2) &&(p % 2 == 0) ) {
-			is_prime = 0;
+        if ( (p > 2) && (p % 2 == 0) ) {
+			continue;
         }
         else {
 			for (int q = 2; (q < p) && (is_prime != 0) ; q++)
-				if (p % q == 0)
+				if (p % q == 0) {
 					is_prime = 0;
+					break;
+				}
         }
 
 		if (is_prime != 0)
