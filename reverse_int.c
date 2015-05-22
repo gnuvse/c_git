@@ -1,20 +1,19 @@
 #include <stdio.h>
 
+
+void reverse_nonnegative_int(int n);
 void reverse_int(int n);
 
 int main() {
 	int n;
-	
+
 	printf("Please, enter number: \n");
 	scanf("%i", &n);
-	
-	reverse(n);
-	
+	reverse_int(n);
 	return 0;
 }
 
-int reverse_nonnegative(int n) {
-	// Сделай так, чтобы функция возвращала результат, а не выводила его на экран
+void reverse_nonnegative_int(int n) {
 	int right_digit;
 	do {
 		right_digit = n % 10;
@@ -24,14 +23,11 @@ int reverse_nonnegative(int n) {
 	printf("\n");
 }
 
-int reverse_int(int n) {
-	// TODO
-	// Не знаю, чего там хочет автор, но по хорошему, делать надо через модуль числа:
-	// У тебя уже есть функция reverse_nonegative, и чтобы не дублировать код проще
-	// воспользоваться ей.
-	// Типа, если n<0, то reverse_nonnegative(-n)
-	
-	// Если хочешь поизвращаться, сделай функцию reverse_negative отдельно.
-	// Но это не очень хорошая идея, т.к. в С % и / от отрицательного числа,
-	// если я не путаю, могут иметь разное действие, в зависимости от платформы.
+void reverse_int(int n) {
+	if (n < 0) {
+		printf("-");
+		reverse_nonnegative_int(-n);
+	}
+	else
+		reverse_nonnegative_int(n);
 }
