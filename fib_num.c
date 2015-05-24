@@ -4,7 +4,7 @@
 
 int main() {
 	int num_fibs;
-    printf("Enter number for fib_num: \n");
+    printf("How many Fibonacci numbers do you wand(1 and 75): \n");
     scanf("%i", &num_fibs);
 
 	int fib_num[num_fibs];
