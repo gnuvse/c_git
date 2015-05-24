@@ -7,6 +7,11 @@ int main() {
     printf("How many Fibonacci numbers do you wand(1 and 75): \n");
     scanf("%i", &num_fibs);
 
+    if (num_fibs < 1 || num_fibs > 75) {
+		printf("Error! Bad number.");
+		return 1;
+    }
+
 	unsigned long long fib[num_fibs];
 	fib[0] = 0;
 	fib[1] = 1;
@@ -17,7 +22,7 @@ int main() {
     }
 
 	for (int i = 0; i < num_fibs; i++) {
-		printf("fib = %llu\n", fib[i]);
+		printf("fib[%i] = %llu\n", i, fib[i]);
     }
 
 	return 0;
