@@ -15,18 +15,18 @@
 #include <stdio.h>
 
 int reverse_nonnegative_int(int n, int count);
-int number_digits(int n, int count);
+int number_digits(int n);
 void print_num(int reverse_n);
 void num_to_str(int n, int count);
 
 
 
 int main() {
-	int n, count = 0;
+	int n;
 	printf("Please, enter number: \n");
 	scanf("%i", &n);
 
-	num_to_str(n, number_digits(n, count));
+	num_to_str(n, number_digits(n));
 
 	return 0;
 }
@@ -42,7 +42,8 @@ void num_to_str(int n, int count) {
 
 
 // Находим количество цифр в числе.
-int number_digits(int n, int count) {
+int number_digits(int n) {
+	int count = 0;
 	while (n != 0) {
 		count++;
 		n /= 10;
