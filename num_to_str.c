@@ -34,8 +34,12 @@ int main() {
 
 
 void num_to_str(int n, int count) {
-	if (count > 8)
-		printf("Error! Output abroad\n");
+	if (count > 8 || n <= 0) {
+		printf("----------------------\n");
+		printf("Error! incorrect data:\n");
+		printf("n > 100000000 or n <= 0\n");
+		printf("----------------------\n");
+	}
 	else
 		print_num(reverse_nonnegative_int(n, count) );
 }
