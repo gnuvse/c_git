@@ -7,17 +7,17 @@ int main() {
     printf("How many Fibonacci numbers do you wand(1 and 75): \n");
     scanf("%i", &num_fibs);
 
-	int fib_num[num_fibs];
-	fib_num[0] = 0;
-	fib_num[1] = 1;
+	unsigned long long fib[num_fibs];
+	fib[0] = 0;
+	fib[1] = 1;
 
 
     for (int i = 2; i < num_fibs; i++) {
-		fib_num[i] = fib_num[i - 2] + fib_num[i - 1];
+		fib[i] = fib[i - 2] + fib[i - 1];
     }
 
 	for (int i = 0; i < num_fibs; i++) {
-		printf("fib_num = %i\n", fib_num[i]);
+		printf("fib = %llu\n", fib[i]);
     }
 
 	return 0;
