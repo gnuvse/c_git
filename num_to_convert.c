@@ -32,6 +32,7 @@ int main() {
 		next_digit = convert_number[index];
 		printf("%c", base_digits[next_digit]);
 	}
+        printf("\n");
 
 	return 0;
 }
