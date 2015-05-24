@@ -15,13 +15,18 @@ int main() {
 	scanf("%li", &num_to_convert);
     printf("Base(2, 16)? ");
     scanf("%i", &base);
-
-    // Преобразовать в указанное основание
-    do {
-		convert_number[index] = num_to_convert % base;
-		index++;
-		num_to_convert /= base;
-    } while (num_to_convert != 0);
+    if (base != 2 && base != 16) {
+		printf("Error, incorrect data");
+		return 1;
+    }
+	else {
+    	// Преобразовать в указанное основание
+    	do {
+			convert_number[index] = num_to_convert % base;
+			index++;
+			num_to_convert /= base;
+    	} while (num_to_convert != 0);
+	}
 
 	// Отобразить результат в обратном порядке
 	// от n-1 до 0
