@@ -2,10 +2,7 @@
 #include <stdio.h>
 
 int main() {
-	const char base_digits[16] = {
-		'0', '1', '2', '3', '4', '5', '6', '7',
-		'8', '9', 'A', 'B', 'C', 'D', 'E', 'F'
-	};
+	const char base_digits[16] = "0123456789ABCDEF";
 	int convert_number[64];
 	long int num_to_convert;
 	int next_digit, base, index = 0;
