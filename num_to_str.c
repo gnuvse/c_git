@@ -27,7 +27,7 @@ int main() {
 
 
 void num_to_str(int n, int count) {
-	if ( (count > 8 || n <= 0) || (n >= 'a' && n <= 'z') || (n >= 'A' && n <= 'Z') ) {
+	if (count > 8 || n <= 0) {
 		printf("----------------------\n");
 		printf("Error! incorrect data:\n");
 		printf("----------------------\n");
