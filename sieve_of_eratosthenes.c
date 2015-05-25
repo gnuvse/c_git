@@ -11,24 +11,23 @@ int main() {
 		printf("Bad number.\n");
 		return 1;
 	}
-	else {
-		int p[n];
-		for (int i = 0; i < n; i++) {
-			p[i] = 1;
-		}
 
-		p[1] = 0;
-		for (int i = 2; i < n; i++) {
-			if (p[i] != 0) {
-				for (int j = i * 2; j < n; j += i)
-					p[j] = 0;
-			}
+	int p[n];
+	for (int i = 0; i < n; i++) {
+		p[i] = 1;
+	}
+
+	p[1] = 0;
+	for (int i = 2; i < n; i++) {
+		if (p[i] != 0) {
+			for (int j = i * 2; j < n; j += i)
+				p[j] = 0;
 		}
+	}
 
 		for (int i = 2; i < n; i++) {
 			if (p[i] != 0)
 				printf("%i \n", i);
 		}
-	}
 	return 0;
 }
