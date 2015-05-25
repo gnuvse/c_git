@@ -1,6 +1,7 @@
 // Решето Эратосфена
 #include <stdio.h>
 
+
 int main() {
 	int n;
 	printf("Enter n: ");
@@ -13,19 +14,20 @@ int main() {
 	else {
 		int p[n];
 		for (int i = 0; i < n; i++) {
-			p[i] = i;
+			p[i] = 1;
 		}
 
 		p[1] = 0;
 		for (int i = 2; i < n; i++) {
-			if (p[i] != 0)
+			if (p[i] != 0) {
 				for (int j = i * 2; j < n; j += i)
 					p[j] = 0;
+			}
 		}
 
-		for (int i = 0; i < n; i++) {
+		for (int i = 2; i < n; i++) {
 			if (p[i] != 0)
-				printf("%i \n", p[i]);
+				printf("%i \n", i);
 		}
 	}
 	return 0;
