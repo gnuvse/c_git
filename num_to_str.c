@@ -7,7 +7,7 @@
 
 #include <stdio.h>
 
-void print_num(int n, int count);
+void print_num(int n);
 int number_digits(int n);
 void print_digit(int n);
 int num_to_str(int n, int count);
@@ -33,7 +33,7 @@ int num_to_str(int n, int count) {
 		return 1;
 	}
 	else {
-		print_num(n, number_digits(n));
+		print_num(n);
 		return 0;
 	}
 }
@@ -52,13 +52,13 @@ int number_digits(int n) {
 
 
 
-void print_num(int n, int count) {
+void print_num(int n) {
 	int next_num;
-	int tmp_count = count;
+	int count = number_digits(n);
 	int multi = 1;
 
 
-	for (int j = tmp_count; j > 1; j--) {
+	for (int j = count; j > 1; j--) {
 		multi *= 10;
 	}
 
