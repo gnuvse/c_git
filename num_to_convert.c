@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 int main() {
-	const char base_digits[16] ="0123456789ABCDEF";
+	const char base_digits[36] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 	int convert_number[64];
 	long int num_to_convert;
@@ -11,10 +11,10 @@ int main() {
 	// Получить число и основание
 	printf("Number to be converted? ");
 	scanf("%li", &num_to_convert);
-	printf("Base(2, 16)? ");
+	printf("Base(2 .. 36)? ");
 	scanf("%i", &base);
 
-	if (base != 2 && base != 16) {
+	if (base < 2 && base > 36) {
 		printf("Error, incorrect data");
 		return 1;
     }
