@@ -10,7 +10,7 @@
 void print_num(int n, int count);
 int number_digits(int n);
 void print_digit(int n);
-void num_to_str(int n, int count);
+int num_to_str(int n, int count);
 
 
 
@@ -19,22 +19,23 @@ int main() {
 	printf("Please, enter number: \n");
 	scanf("%i", &n);
 
-	num_to_str(n, number_digits(n));
 
-	return 0;
+	return num_to_str(n, number_digits(n));
 }
 
 
 
-void num_to_str(int n, int count) {
+int num_to_str(int n, int count) {
 	if (count > 8 || n <= 0) {
 		printf("----------------------\n");
 		printf("Error! incorrect data:\n");
 		printf("----------------------\n");
 		return 1;
 	}
-	else
+	else {
 		print_num(n, number_digits(n));
+		return 0;
+	}
 }
 
 
