@@ -19,15 +19,16 @@ int main() {
 
 	p[1] = 0;
 	for (int i = 2; i < n; i++) {
-		if (p[i] != 0) {
+		if (p[i]) {
 			for (int j = i * 2; j < n; j += i)
 				p[j] = 0;
 		}
 	}
 
-		for (int i = 2; i < n; i++) {
-			if (p[i] != 0)
-				printf("%i \n", i);
-		}
+	for (int i = 2; i < n; i++) {
+		if (p[i])
+			printf("%i \n", i);
+	}
+
 	return 0;
 }
