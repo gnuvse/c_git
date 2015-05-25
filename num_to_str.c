@@ -55,24 +55,18 @@ int number_digits(int n) {
 void print_num(int n, int count) {
 	int next_num;
 	int tmp_count = count;
-	int multi;
+	int multi = 1;
+
+
+	for (int j = tmp_count; j > 1; j--) {
+		multi *= 10;
+	}
 
 
 	for (int i = 0; i < count; i++) {
-		multi = 1;
-
-		// 10 в степени tmp_count
-		// j > 1 сокращаем такты цикла на 1
-		// можно записать tmp_count - 1
-		for (int j = tmp_count; j > 1; j--) {
-			multi *= 10;
-		}
-		// Уменьшаем степень
-		tmp_count--;
-
-
 		next_num = (n / multi) % 10;
 		print_digit(next_num);
+		multi /= 10;
 	}
 }
 
