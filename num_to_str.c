@@ -31,6 +31,7 @@ void num_to_str(int n, int count) {
 		printf("----------------------\n");
 		printf("Error! incorrect data:\n");
 		printf("----------------------\n");
+		return 1;
 	}
 	else
 		print_num(n, number_digits(n));
