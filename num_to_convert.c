@@ -34,5 +34,6 @@ int main() {
 		printf("%c", base_digits[next_digit]);
 	}
 
+	printf("\n");
 	return 0;
 }
