@@ -33,5 +33,5 @@ float abs_val(float x) {
 	if (x < 0)
 		x = -x;
 
-	return (float)x;
+	return x;
 }
