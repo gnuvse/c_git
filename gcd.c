@@ -1,29 +1,30 @@
 /*
  * gdc.c Нахождение наибольшего общего делителя
- * 
+ *
  */
 
 #include <stdio.h>
 
-void check(int u, int v, int tmp) {
-	printf("u = %i, v = %i, tmp = %i\n", u, v, tmp);
+void gdc(int u, int v);
+
+int main() {
+	int u, v;
+
+	printf("Please enter nonnegative integers.\n");
+	scanf("%i %i", &u, &v);
+
+	gdc(u, v);
+
+	return 0;
 }
 
 
-int main() {
-	int u, v, tmp;
-	
-	printf("Please enter nonnegative integers.\n");
-	scanf("%i%i", &u, &v);
-	
+void gdc(int u, int v) {
+	int tmp;
 	while (v != 0) {
 		tmp = u % v;
 		u = v;
 		v = tmp;
-		check(u, v, tmp);
 	}
-	
 	printf("Their greatest common divisot is %i\n", u);
-		
-	return 0;
 }
