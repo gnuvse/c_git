@@ -13,11 +13,11 @@ int main() {
 		return -1;
 
 
-    int arr[n];
-    for (int i = 0; i < n; i++) {
+	int arr[n];
+	for (int i = 0; i < n; i++) {
 		printf("#%i = ", i);
 		scanf("%i", &arr[i]);
-    }
+	}
 
 	printf("\n");
 
@@ -29,7 +29,7 @@ int main() {
 	printf("\n\nAfter sort:\n");
 	print_arr(arr, n);
 
-    return 0;
+	return 0;
 }
 
 
