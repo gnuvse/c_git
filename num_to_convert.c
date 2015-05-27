@@ -17,7 +17,7 @@ int main() {
 	if (base < 2 && base > 36) {
 		printf("Error, incorrect data");
 		return 1;
-    }
+	}
 	else {
     	// Преобразовать в указанное основание
 		do {
