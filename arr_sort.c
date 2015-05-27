@@ -19,8 +19,6 @@ int main() {
 		scanf("%i", &arr[i]);
 	}
 
-	printf("\n");
-
 	printf("Not sort:\n");
 	print_arr(arr, n);
 
@@ -28,6 +26,8 @@ int main() {
 
 	printf("\n\nAfter sort:\n");
 	print_arr(arr, n);
+
+	printf("\n");
 
 	return 0;
 }
