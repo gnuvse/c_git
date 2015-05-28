@@ -1,12 +1,14 @@
 // Преобразования целого числа из одной системы счисления в другую
 #include <stdio.h>
 
+int convert_number[64];
+long int num_to_convert;
+int next_digit, base, index = 0;
+
+
 int main() {
 	const char base_digits[36] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-	int convert_number[64];
-	long int num_to_convert;
-	int next_digit, base, index = 0;
 
 	// Получить число и основание
 	printf("Number to be converted? ");
