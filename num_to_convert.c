@@ -49,7 +49,7 @@ void convert_number() {
 
 
 void get_base() {
-	printf("g_base(2 .. 36)? ");
+	printf("base(2 .. 36)? ");
 	scanf("%i", &g_base);
 
 	if (g_base < 2 && g_base > 36) {
