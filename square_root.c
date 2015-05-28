@@ -3,11 +3,11 @@
 #include <stdio.h>
 
 float abs_val(float x);
-float square_root(float x);
+float square_root(float x, float epsilon);
 
 
 int main() {
-	float x;
+	float x, epsilon = 0.00001;
 
 	printf("Please enter number: \n");
 	scanf("%f", &x);
@@ -18,13 +18,12 @@ int main() {
 	}
 
 
-	printf("square root = %f\n", square_root(x));
+	printf("square root = %f\n", square_root(x, epsilon));
 
 	return 0;
 }
 
-float square_root(float x) {
-	const float epsilon = 0.00001;
+float square_root(float x, float epsilon) {
 	float guess = 1.0;
 
 	while(abs_val(guess * guess - x) >= epsilon) {
