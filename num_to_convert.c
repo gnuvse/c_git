@@ -1,20 +1,20 @@
 // Преобразования целого числа из одной системы счисления в другую
 #include <stdio.h>
 
-int converted_number[64];
-long int num_to_convert;
-int base, index = 0;
+int g_converted_number[64];
+long int g_num_to_convert;
+int g_base, g_index = 0;
 
 
 void get_num();
-void get_base();
+void get_g_base();
 void convert_number();
 void print_converted_num();
 
 int main() {
 	// Получить число и основание
 	get_num();
-	get_base();
+	get_g_base();
 
 	// Преобразовать в указанное основание
 	convert_number();
@@ -29,11 +29,11 @@ int main() {
 
 
 void print_converted_num() {
-	const char base_digits[36] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	const char g_base_digits[36] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	int next_digit;
-	for (index -= 1; index >= 0; index--) {
-		next_digit = converted_number[index];
-		printf("%c", base_digits[next_digit]);
+	for (g_index -= 1; g_index >= 0; g_index--) {
+		next_digit = g_converted_number[g_index];
+		printf("%c", g_base_digits[next_digit]);
 	}
 	printf("\n");
 }
@@ -41,25 +41,25 @@ void print_converted_num() {
 
 void convert_number() {
 	do {
-		converted_number[index] = num_to_convert % base;
-		index++;
-		num_to_convert /= base;
-	} while (num_to_convert != 0);
+		g_converted_number[g_index] = g_num_to_convert % g_base;
+		g_index++;
+		g_num_to_convert /= g_base;
+	} while (g_num_to_convert != 0);
 }
 
 
-void get_base() {
-	printf("Base(2 .. 36)? ");
-	scanf("%i", &base);
+void get_g_base() {
+	printf("g_base(2 .. 36)? ");
+	scanf("%i", &g_base);
 
-	if (base < 2 && base > 36) {
+	if (g_base < 2 && g_base > 36) {
 		printf("Error, incorrect data");
-		base = 10;
+		g_base = 10;
 	}
 }
 
 
 void get_num() {
 	printf("Number to be converted? ");
-	scanf("%li", &num_to_convert);
+	scanf("%li", &g_num_to_convert);
 }
