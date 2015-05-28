@@ -28,7 +28,7 @@ double square_root(double x, double epsilon) {
 
 	while(abs_val(guess * guess - x) >= epsilon) {
 		guess = (x / guess + guess) / 2.0;
-		printf("guess = %lf\n", guess);
+		printf("guess = %elf\n", guess);
 	}
 
 	return guess;
