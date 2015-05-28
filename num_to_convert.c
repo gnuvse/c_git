@@ -9,10 +9,10 @@ int next_digit, base, index = 0;
 void get_num();
 void get_base();
 void convert_number();
-
+void print_converted_num();
 
 int main() {
-	const char base_digits[36] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
 
 
 	// Получить число и основание
@@ -24,14 +24,22 @@ int main() {
 
 	// Отобразить результат в обратном порядке
 	// от n-1 до 0
-	for (index -= 1; index >= 0; index--) {
-		next_digit = converted_number[index];
-		printf("%c", base_digits[next_digit]);
-	}
+	print_converted_num();
 
 	printf("\n");
 	return 0;
 }
+
+
+void print_converted_num() {
+	const char base_digits[36] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	for (index -= 1; index >= 0; index--) {
+		next_digit = converted_number[index];
+		printf("%c", base_digits[next_digit]);
+	}
+	printf("\n");
+}
+
 
 void convert_number() {
 	do {
