@@ -3,7 +3,7 @@
 
 int converted_number[64];
 long int num_to_convert;
-int next_digit, base, index = 0;
+int base, index = 0;
 
 
 void get_num();
@@ -30,6 +30,7 @@ int main() {
 
 void print_converted_num() {
 	const char base_digits[36] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	int next_digit;
 	for (index -= 1; index >= 0; index--) {
 		next_digit = converted_number[index];
 		printf("%c", base_digits[next_digit]);
