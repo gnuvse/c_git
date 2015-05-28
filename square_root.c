@@ -2,15 +2,15 @@
 
 #include <stdio.h>
 
-float abs_val(float x);
-float square_root(float x, float epsilon);
+double abs_val(double x);
+double square_root(double x, double epsilon);
 
 
 int main() {
-	float x, epsilon = 0.00001;
+	double x, epsilon = 0.00001;
 
 	printf("Please enter number: \n");
-	scanf("%f", &x);
+	scanf("%lf", &x);
 
 	if (x < 0) {
 		printf("Negative argument to square_root.\n");
@@ -23,19 +23,19 @@ int main() {
 	return 0;
 }
 
-float square_root(float x, float epsilon) {
-	float guess = 1.0;
+double square_root(double x, double epsilon) {
+	double guess = 1.0;
 
 	while(abs_val(guess * guess - x) >= epsilon) {
 		guess = (x / guess + guess) / 2.0;
-		printf("guess = %f\n", guess);
+		printf("guess = %lf\n", guess);
 	}
 
 	return guess;
 }
 
 
-float abs_val(float x) {
+double abs_val(double x) {
 	if (x < 0)
 		x = -x;
 
