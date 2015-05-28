@@ -59,7 +59,6 @@ void get_base() {
 }
 
 
-
 void get_num() {
 	printf("Number to be converted? ");
 	scanf("%li", &num_to_convert);
