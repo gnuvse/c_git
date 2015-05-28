@@ -28,6 +28,7 @@ float square_root(float x, float epsilon) {
 
 	while(abs_val(guess * guess - x) >= epsilon) {
 		guess = (x / guess + guess) / 2.0;
+		printf("guess = %f\n", guess);
 	}
 
 	return guess;
