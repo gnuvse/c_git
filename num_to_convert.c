@@ -6,13 +6,14 @@ long int num_to_convert;
 int next_digit, base, index = 0;
 
 
+void get_num();
+
 int main() {
 	const char base_digits[36] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 
 	// Получить число и основание
-	printf("Number to be converted? ");
-	scanf("%li", &num_to_convert);
+	get_num();
 	printf("Base(2 .. 36)? ");
 	scanf("%i", &base);
 
@@ -38,4 +39,9 @@ int main() {
 
 	printf("\n");
 	return 0;
+}
+
+void get_num() {
+	printf("Number to be converted? ");
+	scanf("%li", &num_to_convert);
 }
