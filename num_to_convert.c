@@ -12,9 +12,6 @@ void convert_number();
 void print_converted_num();
 
 int main() {
-
-
-
 	// Получить число и основание
 	get_num();
 	get_base();
