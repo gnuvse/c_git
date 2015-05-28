@@ -3,7 +3,7 @@
 void scalar_multiply(int n_row, int n_column,
 		int matrix[n_row][n_column], int scalar);
 
-void display_matrix(int n_row, int n_column, int matrix[n_row][n_column]);
+void print_matrix(int n_row, int n_column, int matrix[n_row][n_column]);
 
 void arr_init(int n_row, int n_column, int matrix[n_row][n_column]);
 
@@ -14,11 +14,11 @@ int main() {
 	printf("Please enter the value of element.\n");
 	arr_init(n_row, n_column, matrix);
 
-	display_matrix(n_row, n_column, matrix);
+	print_matrix(n_row, n_column, matrix);
 	printf("\n");
 	scalar_multiply(n_row, n_column, matrix, 2);
 	printf("\n");
-	display_matrix(n_row, n_column, matrix);
+	print_matrix(n_row, n_column, matrix);
 
 	return 0;
 }
@@ -34,7 +34,7 @@ void scalar_multiply(int n_row, int n_column,
 }
 
 
-void display_matrix(int n_row, int n_column, int matrix[n_row][n_column]) {
+void print_matrix(int n_row, int n_column, int matrix[n_row][n_column]) {
 	for (int row = 0; row < n_row; row++) {
 		for (int column = 0; column < n_column; ++column)
 			printf("%5i", matrix[row][column]);
