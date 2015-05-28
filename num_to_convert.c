@@ -7,14 +7,14 @@ int g_base, g_index = 0;
 
 
 void get_num();
-void get_g_base();
+void get_base();
 void convert_number();
 void print_converted_num();
 
 int main() {
 	// Получить число и основание
 	get_num();
-	get_g_base();
+	get_base();
 
 	// Преобразовать в указанное основание
 	convert_number();
@@ -48,7 +48,7 @@ void convert_number() {
 }
 
 
-void get_g_base() {
+void get_base() {
 	printf("g_base(2 .. 36)? ");
 	scanf("%i", &g_base);
 
