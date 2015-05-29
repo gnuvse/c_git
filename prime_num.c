@@ -14,6 +14,7 @@ int main() {
 	scanf("%i", &max_prime);
 	printf("---------------------------------------------------\n");
 
+
 	prime_num(max_prime);
 
 	return 0;
@@ -26,10 +27,10 @@ void prime_num(int max_prime) {
 		is_prime = 1;
 
 		// Если больше двух и четное
-        if ( (p > 2) && (p % 2 == 0) ) {
+		if ( (p > 2) && (p % 2 == 0) ) {
 			continue;
 		}
-        else {
+		else {
 			for (int q = 2; (q < p) && (is_prime) ; q++)
 				if (p % q == 0) {
 					is_prime = 0;
@@ -37,7 +38,8 @@ void prime_num(int max_prime) {
 				}
 		}
 
-		if (is_prime != 0)
+
+		if (is_prime)
 			printf("%i, ", p);
 	}
 
