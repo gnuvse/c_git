@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 int g_converted_number[64];
-long int g_num_to_convert;
+long int g_num_to_convert = 1;
 int g_base, g_index = 0;
 
 
@@ -12,18 +12,30 @@ void convert_number();
 void print_converted_num();
 
 int main() {
-	// Получить число и основание
-	get_num();
-	get_base();
+	int tmp = 1;
 
-	// Преобразовать в указанное основание
-	convert_number();
+	while (tmp >= 0) {
+		// Заново присваиваем 1, потому что глобальная переменная,
+		// чтобы продолжить ввод
+		g_num_to_convert = 1;
+		g_base = 1;
 
-	// Отобразить результат в обратном порядке
-	// от n-1 до 0
-	print_converted_num();
+		// Получить число и основание
+		get_num();
+		while(g_base < 2 || g_base > 36) {
+			get_base();
+		}
 
-	printf("\n");
+		// Преобразовать в указанное основание
+		convert_number();
+
+		// Отобразить результат в обратном порядке
+		// от n-1 до 0
+		print_converted_num();
+		printf("For exit enter(-1): ");
+		scanf("%i", &tmp);
+		printf("\n");
+	}
 	return 0;
 }
 
@@ -51,11 +63,6 @@ void convert_number() {
 void get_base() {
 	printf("base(2 .. 36)? ");
 	scanf("%i", &g_base);
-
-	if (g_base < 2 && g_base > 36) {
-		printf("Error, incorrect data");
-		g_base = 10;
-	}
 }
 
 
