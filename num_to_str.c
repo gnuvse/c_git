@@ -1,23 +1,9 @@
-/*
-	Задача 6.6
-	Напишите программу, которая принимает число,
-	введенное пользователем и отображает значение
-	каждой цифры на английском языке
-
-	input: 953
-	output: nine five three
-
-	PS. Скорее всего эту задачу можно решить другим
-	способом, но я смог так.
-	Далее жесткий быдлокод
-*/
-
 #include <stdio.h>
 
-void print_num(int n, int count);
+void print_num(int n);
 int number_digits(int n);
 void print_digit(int n);
-void num_to_str(int n, int count);
+int num_to_str(int n, int count);
 
 
 
@@ -26,20 +12,23 @@ int main() {
 	printf("Please, enter number: \n");
 	scanf("%i", &n);
 
-	num_to_str(n, number_digits(n));
 
-	return 0;
+	return num_to_str(n, number_digits(n));
 }
 
 
 
-void num_to_str(int n, int count) {
+int num_to_str(int n, int count) {
 	if (count > 8 || n <= 0) {
-		printf("Error! Incorrect data:\n");
-		printf("overflow or n <= 0\n");
+		printf("----------------------\n");
+		printf("Error! incorrect data:\n");
+		printf("----------------------\n");
+		return 1;
 	}
-	else
-		print_num(n, number_digits(n));
+	else {
+		print_num(n);
+		return 0;
+	}
 }
 
 
@@ -56,20 +45,21 @@ int number_digits(int n) {
 
 
 
-void print_num(int n, int count) {
-	int tmp_count = count;
-	int multi;
+void print_num(int n) {
+	int next_num;
+	int count = number_digits(n);
+	int multi = 1;
+
+
+	for (int j = count; j > 1; j--) {
+		multi *= 10;
+	}
 
 
 	for (int i = 0; i < count; i++) {
-		multi = 1;
-
-		for (int j = tmp_count; j > 1; j--) {
-			multi *= 10;
-		}
-		tmp_count--;
-
-		print_digit((n / multi) % 10);
+		next_num = (n / multi) % 10;
+		print_digit(next_num);
+		multi /= 10;
 	}
 }
 
@@ -110,5 +100,5 @@ void print_digit(int n) {
 		default:
 			printf("Error!\n");
 			break;
-    }
+	}
 }
