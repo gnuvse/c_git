@@ -25,7 +25,7 @@ int main() {
 	tomorrow = date_update(today);
 
 	printf("\n");
-	printf("Tomorrow's date(%i/%i/%i): ",
+	printf("Tomorrow's date(%i/%i/%i) ",
 			tomorrow.day, tomorrow.month, tomorrow.year);
 
 
