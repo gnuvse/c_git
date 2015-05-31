@@ -2,8 +2,8 @@
 #include <stdbool.h>
 
 struct date {
-	int month;
 	int day;
+	int month;
 	int year;
 };
 
@@ -36,19 +36,13 @@ struct date date_update (struct date today) {
 	struct date tomorrow;
 
 	if (today.day != num_of_days(today)) {
-		tomorrow.day = today.day + 1;
-		tomorrow.month = today.month;
-		tomorrow.year = today.year;
+		tomorrow = (struct date) {today.day + 1, today.month, today.year};
 	}
-	else if (today.month == 12) {
-		tomorrow.day = 1;
-		tomorrow.month = 1;
-		tomorrow.year = today.year + 1;
+	else if (today.month == 12) { // Конец года
+		tomorrow = (struct date) {1, 1, today.year + 1};
 	}
-	else {
-		tomorrow.day = 1;
-		tomorrow.month = today.month + 1;
-		tomorrow.year = today.year;
+	else { // Конец месяца
+		tomorrow = (struct date) {1, today.month + 1, today.year};
 	}
 
 	return tomorrow;
