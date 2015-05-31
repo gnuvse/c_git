@@ -15,15 +15,21 @@ int main() {
 	struct date d1 = {3, 8, 2004};
 	struct date d2 = {21, 2, 2005};
 
-	int date1, date2;
+	int date1, date2, date_res;
 
 	date1 = diff_date(d1);
 	date2 = diff_date(d2);
 
+	if (date1 > date2)
+		date_res = date1 - date2;
+	else
+		date_res = date2 - date1;
+
+
 	printf("%i/%i/%i - %i/%i/%i = %i days\n",
 			d1.day, d1.month, d1.year,
 			d2.day, d2.month, d2.year,
-			date2 - date1);
+			date_res);
 
 	return 0;
 }
