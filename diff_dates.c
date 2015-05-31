@@ -15,8 +15,12 @@ int main() {
 	struct date d1 = {3, 8, 2004};
 	struct date d2 = {21, 2, 2005};
 
-	printf("n1 = %i, n2 = %i\tn2 - n1 = %i",
-			diff_date(d1), diff_date(d2), diff_date(d2) - diff_date(d1));
+	int date1, date2;
+
+	date1 = diff_date(d1);
+	date2 = diff_date(d2);
+
+	printf("n1 = %i, n2 = %i\tn2 - n1 = %i", date1, date2, date2 - date1);
 
 	return 0;
 }
