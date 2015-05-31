@@ -7,7 +7,7 @@ struct date {
 };
 
 int diff_date(struct date d);
-
+struct date condition_calculate_date(struct date d);
 
 int main() {
 	struct date d1 = {3, 8, 2004};
@@ -19,8 +19,7 @@ int main() {
 	return 0;
 }
 
-int diff_date(struct date d) {
-	int n;
+struct date condition_calculate_date(struct date d) {
 	if (d.month <= 2)
 		d.year -= 1;
 
@@ -29,7 +28,19 @@ int diff_date(struct date d) {
 	else
 		d.month += 1;
 
-	n = (1461 * d.year) / 4 + (153 * d.month) / 5 + d.day;
+	return d;
+}
+
+
+int diff_date(struct date d) {
+	int n;
+	struct date cond_date;
+
+	cond_date = condition_calculate_date(d);
+
+	n = (1461 * cond_date.year) / 4
+		+ (153 * cond_date.month) / 5
+		+ cond_date.day;
 
 	return n;
 }
