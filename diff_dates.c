@@ -20,7 +20,10 @@ int main() {
 	date1 = diff_date(d1);
 	date2 = diff_date(d2);
 
-	printf("n1 = %i, n2 = %i\tn2 - n1 = %i", date1, date2, date2 - date1);
+	printf("%i/%i/%i - %i/%i/%i = %i days\n",
+			d1.day, d1.month, d1.year,
+			d2.day, d2.month, d2.year,
+			date2 - date1);
 
 	return 0;
 }
