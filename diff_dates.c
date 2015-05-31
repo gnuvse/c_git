@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdbool.h>
 
 struct date {
 	int day;
@@ -8,6 +9,7 @@ struct date {
 
 int diff_date(struct date d);
 struct date condition_calculate_date(struct date d);
+bool conditions_older_dates(struct date d);
 
 int main() {
 	struct date d1 = {3, 8, 2004};
@@ -32,9 +34,22 @@ struct date condition_calculate_date(struct date d) {
 }
 
 
+bool conditions_older_dates(struct date d) {
+	bool older_than_1800;
+
+	if (d.year >= 1800 && d.year <= 1900)
+		older_than_1800 = 0;
+	if (d.year >= 1700 && d.year < 1800)
+		older_than_1800 = 1;
+
+	return older_than_1800 = 1;
+}
+
+
 int diff_date(struct date d) {
 	int n;
 	struct date cond_date;
+	bool older_than_1800 = conditions_older_dates(d);
 
 	cond_date = condition_calculate_date(d);
 
@@ -42,12 +57,11 @@ int diff_date(struct date d) {
 		+ (153 * cond_date.month) / 5
 		+ cond_date.day;
 
-
-	if (d.year >= 1800 && d.year <= 1900)
-		n += 1;
-
-	if (d.year >= 1700 && d.year < 1800)
+	if (older_than_1800)
 		n += 2;
+
+	if (!older_than_1800)
+		n += 1;
 
 
 	return n;
