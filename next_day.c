@@ -10,6 +10,7 @@ struct date {
 
 int num_of_days(struct date d);
 bool is_leap_year(struct date d);
+struct date date_update (struct date today);
 
 
 int main() {
@@ -20,6 +21,19 @@ int main() {
 
 	printf("Enter todays date(dd mm yyyy): ");
 	scanf("%i%i%i", &today.day, &today.month, &today.year);
+
+	tomorrow = date_update(today);
+
+	printf("\n");
+	printf("Tomorrow's date(%i/%i/%i): ",
+			tomorrow.day, tomorrow.month, tomorrow.year);
+
+
+	return 0;
+}
+
+struct date date_update (struct date today) {
+	struct date tomorrow;
 
 	if (today.day != num_of_days(today)) {
 		tomorrow.day = today.day + 1;
@@ -37,11 +51,7 @@ int main() {
 		tomorrow.year = today.year;
 	}
 
-	printf("\n");
-	printf("Tomorrow's date(%i/%i/%i): ",
-			tomorrow.day, tomorrow.month, tomorrow.year);
-
-	return 0;
+	return tomorrow;
 }
 
 bool is_leap_year(struct date d) {
