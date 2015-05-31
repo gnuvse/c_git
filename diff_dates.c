@@ -11,11 +11,20 @@ int diff_date(struct date d);
 struct date condition_calculate_date(struct date d);
 bool conditions_older_dates(struct date d);
 
+
+
 int main() {
-	struct date d1 = {3, 8, 2004};
-	struct date d2 = {21, 2, 2005};
+	struct date d1;
+	struct date d2;
 
 	int date1, date2, date_res;
+
+	printf("Enter date1(dd mm yyyy): ");
+	scanf("%i%i%i", &d1.day, &d1.month, &d1.year);
+
+	printf("Enter date2(dd mm yyyy): ");
+	scanf("%i%i%i", &d2.day, &d2.month, &d2.year);
+
 
 	date1 = diff_date(d1);
 	date2 = diff_date(d2);
