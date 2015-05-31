@@ -42,5 +42,13 @@ int diff_date(struct date d) {
 		+ (153 * cond_date.month) / 5
 		+ cond_date.day;
 
+
+	if (d.year >= 1800 && d.year <= 1900)
+		n += 1;
+
+	if (d.year >= 1700 && d.year < 1800)
+		n += 2;
+
+
 	return n;
 }
