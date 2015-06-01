@@ -22,7 +22,7 @@ int main() {
 	printf("Enter the time2(1 .. 24, 24 = 00): ");
 	scanf("%i%i%i", &t2.hour, &t2.minutes, &t2.seconds);
 
-	if (t1.hour < t2.hour) {
+	if ( (t1.hour < t2.hour) || (t1.minutes < t2.minutes) ) {
 		printf("Error. time2 > time1\n");
 		return -1;
 	}
