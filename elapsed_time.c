@@ -15,8 +15,12 @@ int main() {
 	struct time t2;
 
 
+	printf("Enter the time to calculate\n");
+	printf("Requirement:  time1 > time2\n");
+	printf("---------------------------\n");
 
-	printf("Enter the time1(time1 > time2)(1 .. 24, 24 = 00): ");
+	printf("---------------------------\n");
+	printf("Enter the time1(1 .. 24, 24 = 00): ");
 	scanf("%i%i%i", &t1.hour, &t1.minutes, &t1.seconds);
 
 	printf("Enter the time2(1 .. 24, 24 = 00): ");
