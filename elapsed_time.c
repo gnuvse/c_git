@@ -11,6 +11,14 @@ struct time elapsed_time(struct time t1, struct time t2);
 int main() {
 	struct time t1 = {12, 10, 10};
 	struct time t2 = {24, 10, 10};
+
+	printf("Enter time1(hh mm ss): ");
+	scanf("%i%i%i", &t1.hour, &t1.minutes, &t1.seconds);
+
+	printf("Enter time2(hh mm ss): ");
+	scanf("%i%i%i", &t2.hour, &t2.minutes, &t2.seconds);
+
+
 	struct time t_res = elapsed_time(t1, t2);
 
 	printf("t_res = %i/%i/%i\n", t_res.hour, t_res.minutes, t_res.seconds);
