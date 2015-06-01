@@ -65,14 +65,14 @@ struct date condition_calculate_date(struct date d) {
 
 
 bool conditions_older_dates(struct date d) {
-	bool older_than_1800;
+	bool older_than_1800 = 0;
 
 	if (d.year >= 1800 && d.year <= 1900)
-		older_than_1800 = 0;
+		older_than_1800 = 2;
 	if (d.year >= 1700 && d.year < 1800)
 		older_than_1800 = 1;
 
-	return older_than_1800 = 1;
+	return older_than_1800;
 }
 
 
@@ -90,7 +90,7 @@ int diff_date(struct date d) {
 	if (older_than_1800)
 		n += 2;
 
-	if (!older_than_1800)
+	if (older_than_1800 == 2)
 		n += 1;
 
 
