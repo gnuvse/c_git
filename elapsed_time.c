@@ -31,6 +31,11 @@ int main() {
 		return -1;
 	}
 
+	if (t1.hour == 0 || t2.hour == 0) {
+		printf("Error. time1.hour or time2.hour = 0");
+		return -2;
+	}
+
 
 	struct time t_res = elapsed_time(t1, t2);
 
