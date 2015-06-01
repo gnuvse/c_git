@@ -30,7 +30,8 @@ int main() {
 
 	struct time t_res = elapsed_time(t1, t2);
 
-	printf("t_res = %i:%i:%i\n", t_res.hour, t_res.minutes, t_res.seconds);
+	printf("time1 - time2 = %i:%i:%i\n",
+			t_res.hour, t_res.minutes, t_res.seconds);
 
 	return 0;
 }
