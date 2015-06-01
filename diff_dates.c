@@ -10,6 +10,7 @@ struct date {
 int diff_date(struct date d);
 struct date condition_calculate_date(struct date d);
 bool conditions_older_dates(struct date d);
+int abs_val(int x);
 
 
 
@@ -29,10 +30,8 @@ int main() {
 	date1 = diff_date(d1);
 	date2 = diff_date(d2);
 
-	if (date1 > date2)
-		date_res = date1 - date2;
-	else
-		date_res = date2 - date1;
+
+	date_res = abs_val(date1 - date2);
 
 
 	printf("%i/%i/%i - %i/%i/%i = %i days\n",
@@ -42,6 +41,15 @@ int main() {
 
 	return 0;
 }
+
+
+int abs_val(int x) {
+	if (x < 0)
+		x = -x;
+
+	return x;
+}
+
 
 struct date condition_calculate_date(struct date d) {
 	if (d.month <= 2)
