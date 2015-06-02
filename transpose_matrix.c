@@ -3,7 +3,7 @@
 void transpose_matrix(int row, int column,
 						int m[row][column], int n[column][row]);
 
-void arr_init(int row, int column, int m[row][column]);
+void input_matrix(int row, int column, int m[row][column]);
 
 void print_matrix(int row, int column, int matrix[row][column]);
 
@@ -15,7 +15,7 @@ int main() {
 	int m[row][column];
 	int n[column][row];
 
-	arr_init(row, column, m);
+	input_matrix(row, column, m);
 	print_matrix(row, column, m);
 	transpose_matrix(row, column, m, n);
 
@@ -32,7 +32,7 @@ void print_matrix(int row, int column, int matrix[row][column]) {
 	}
 }
 
-void arr_init(int row, int column, int m[row][column]) {
+void input_matrix(int row, int column, int m[row][column]) {
 	for (int i = 0; i < row; i++) {
 		for (int j = 0; j < column; j++) {
 			printf("row#%i, column#%i == ", i, j);
