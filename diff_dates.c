@@ -53,11 +53,10 @@ int abs_val(int x) {
 // Условие для расчета даты.
 // Если месяц январь или февраль
 struct date condition_calculate_date(struct date d) {
-	if (d.month <= 2)
+	if (d.month <= 2) {
 		d.year -= 1;
-
-	if (d.month <= 2)
 		d.month += 13;
+	}
 	else
 		d.month += 1;
 
