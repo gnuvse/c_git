@@ -26,16 +26,6 @@ int main() {
 	printf("Enter the time2(1 .. 24, 24 = 00): ");
 	scanf("%i%i%i", &t2.hour, &t2.minutes, &t2.seconds);
 
-	if ( (t1.hour < t2.hour) || (t1.minutes < t2.minutes) ) {
-		printf("Error. time2 > time1\n");
-		return -1;
-	}
-
-	if (t1.hour == 0 || t2.hour == 0) {
-		printf("Error. time1.hour or time2.hour = 0");
-		return -2;
-	}
-
 
 	struct time t_res = elapsed_time(t1, t2);
 
