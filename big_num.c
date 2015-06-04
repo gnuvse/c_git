@@ -1,26 +1,54 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 #define SIZE 500
 
 int input_number(int buf_size, char *buf);
 void output_number(int count_digits, char *buf);
 char *reverse_number(int count_digits, char *buf);
+char *diff_number(int count_digits, char *buf1, char *buf2);
 
 int main() {
-	char *buf = malloc(sizeof(char) * SIZE);
+	char *buf1 = malloc(sizeof(char) * SIZE);
+	char *buf2 = malloc(sizeof(char) * SIZE);
+	char *res = malloc(sizeof(char) * SIZE);
 	int count_digits;
+	int count;
 
-	count_digits = input_number(SIZE, buf);
+	count_digits = input_number(SIZE, buf1);
 	printf("count = %i\n", count_digits);
+	count = input_number(SIZE, buf2);
+	printf("count = %i\n", count);
 
-	output_number(count_digits, buf);
+	output_number(count_digits, buf1);
+	output_number(count_digits, buf2);
 
-	buf = reverse_number(count_digits, buf);
+	buf1 = reverse_number(count_digits, buf1);
+	buf2 = reverse_number(count_digits, buf2);
+	res = diff_number(count_digits, buf1, buf2);
+	//res = reverse_number(count_digits, res);
 
-	output_number(count_digits, buf);
+	output_number(count_digits, res);
 
 
 	return 0;
+}
+
+
+char *diff_number(int count_digits, char *buf1, char *buf2) {
+	char *res = malloc(sizeof(char) * count_digits);
+
+	for (int i = 0; i < count_digits; i++) {
+		printf("buf1 = %i, buf1 = %i\n", buf1[i], buf2[i]);
+		if (buf1[i] - buf2[i] < 0) {
+			res[i] = (buf1[i] + 10) - buf2[i];
+			printf("%i\n", res[i]);
+		}
+		else
+			res[i] = buf1[i] - buf2[i];
+	}
+
+	return res;
 }
 
 
