@@ -3,6 +3,7 @@
 #define SIZE 500
 
 int input_number(int buf_size, char *buf);
+void output_number(int count_digits, char *buf);
 
 int main() {
 	char *buf = malloc(sizeof(char) * SIZE);
@@ -12,10 +13,17 @@ int main() {
 
 	printf("count = %i\n", count_digits);
 
+	output_number(count_digits, buf);
+
 	return 0;
 }
 
+void output_number(int count_digits, char *buf) {
+	for (int i = 0; i < count_digits; i++)
+		printf("%i", buf[i]);
 
+	printf("\n");
+}
 
 
 int input_number(int buf_size, char *buf) {
