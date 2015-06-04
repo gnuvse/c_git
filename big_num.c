@@ -21,12 +21,12 @@ int main() {
 	printf("count = %i\n", count);
 
 	output_number(count_digits, buf1);
-	output_number(count_digits, buf2);
+	output_number(count, buf2);
 
 	buf1 = reverse_number(count_digits, buf1);
-	buf2 = reverse_number(count_digits, buf2);
+	buf2 = reverse_number(count, buf2);
 	res = diff_number(count_digits, buf1, buf2);
-	//res = reverse_number(count_digits, res);
+	res = reverse_number(count_digits, res);
 
 	output_number(count_digits, res);
 
@@ -39,10 +39,8 @@ char *diff_number(int count_digits, char *buf1, char *buf2) {
 	char *res = malloc(sizeof(char) * count_digits);
 
 	for (int i = 0; i < count_digits; i++) {
-		printf("buf1 = %i, buf1 = %i\n", buf1[i], buf2[i]);
 		if (buf1[i] - buf2[i] < 0) {
 			res[i] = (buf1[i] + 10) - buf2[i];
-			printf("%i\n", res[i]);
 		}
 		else
 			res[i] = buf1[i] - buf2[i];
