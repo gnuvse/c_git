@@ -4,7 +4,7 @@
 
 int input_number(int buf_size, char *buf);
 void output_number(int count_digits, char *buf);
-void revers_number(int count_digits, char *buf);
+char *revers_number(int count_digits, char *buf);
 
 int main() {
 	char *buf = malloc(sizeof(char) * SIZE);
@@ -16,14 +16,16 @@ int main() {
 
 	output_number(count_digits, buf);
 
-	revers_number(count_digits, buf);
+	buf = revers_number(count_digits, buf);
 
 	output_number(count_digits, buf);
+
+
 	return 0;
 }
 
 
-void revers_number(int count_digits, char *buf) {
+char *revers_number(int count_digits, char *buf) {
 	char *tmp_arr = malloc(sizeof(char) * count_digits);
 
 
@@ -32,8 +34,10 @@ void revers_number(int count_digits, char *buf) {
 		printf("%i\n", buf[j]);
 	}
 
-	for (int i = 0; i < count_digits; i++)
-		buf[i] = tmp_arr[i];
+	//for (int i = 0; i < count_digits; i++)
+	//	buf[i] = tmp_arr[i];
+
+	return tmp_arr;
 }
 
 
