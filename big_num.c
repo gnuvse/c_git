@@ -27,11 +27,8 @@ int main() {
 char *reverse_number(int count_digits, char *buf) {
 	char *buf_reverse = malloc(sizeof(char) * count_digits);
 
-
-	for (int i = 0, j = count_digits - 1; i < count_digits; i++, j--) {
+	for (int i = 0, j = count_digits - 1; i < count_digits; i++, j--)
 		buf_reverse[i] = buf[j];
-		printf("%i\n", buf[j]);
-	}
 
 	return buf_reverse;
 }
