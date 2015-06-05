@@ -30,6 +30,9 @@ int main() {
 
 	output_number(count_digits, res);
 
+	free(buf1);
+	free(buf2);
+	free(res);
 
 	return 0;
 }
