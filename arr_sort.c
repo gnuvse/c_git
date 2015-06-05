@@ -44,7 +44,7 @@ void sort(int arr[], int n, bool arg_sort) {
 
 	if(arg_sort) {
 		for(int i = 0; i < n - 1; i++) {
-			for (int j = i + 1; j < n; j++) {
+			for (int j = i; j < n - i; j++) {
 				if (arr[i] < arr[j]) {
 					tmp = arr[i];
 					arr[i] = arr[j];
@@ -55,7 +55,7 @@ void sort(int arr[], int n, bool arg_sort) {
 	}
 	else {
 		for(int i = 0; i < n - 1; i++) {
-			for (int j = i + 1; j < n; j++) {
+			for (int j = i + 1; j < n - i; j++) {
 				if (arr[i] > arr[j]) {
 					tmp = arr[i];
 					arr[i] = arr[j];
