@@ -1,3 +1,6 @@
+// Программа производить разность двух чисел с большим количеством знаков
+// Условие: buf1 > buf2
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -7,6 +10,8 @@ int input_number(int buf_size, char *buf);
 void output_number(int count_digits, char *buf);
 char *reverse_number(int count_digits, char *buf);
 char *diff_number(int count_digits, char *buf1, char *buf2);
+
+
 
 int main() {
 	char *buf1 = malloc(sizeof(char) * SIZE);
@@ -38,6 +43,7 @@ int main() {
 }
 
 
+
 char *diff_number(int count_digits, char *buf1, char *buf2) {
 	char *res = malloc(sizeof(char) * count_digits);
 
@@ -54,6 +60,8 @@ char *diff_number(int count_digits, char *buf1, char *buf2) {
 }
 
 
+// Переворачиваем число, чтобы с первого разряда отнимать,
+// а не с последнего
 char *reverse_number(int count_digits, char *buf) {
 	char *buf_reverse = malloc(sizeof(char) * count_digits);
 
