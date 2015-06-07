@@ -43,11 +43,12 @@ int main() {
 }
 
 
-
+// разность двух чисел
 char *diff_number(int count_digits, char *buf1, char *buf2) {
 	char *res = malloc(sizeof(char) * count_digits);
 
 	for (int i = 0; i < count_digits; i++) {
+		// если условие выполняется, то мы занимаем из старшего разряда
 		if (buf1[i] - buf2[i] < 0) {
 			buf1[i + 1] -= 1;
 			res[i] = (buf1[i] + 10) - buf2[i];
