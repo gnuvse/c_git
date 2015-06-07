@@ -1,4 +1,4 @@
-// Программа производить разность двух чисел с большим количеством знаков
+// Программа производит разность двух чисел с большим количеством знаков
 // Условие: buf1 > buf2
 
 #include <stdio.h>
@@ -17,13 +17,21 @@ int main() {
 	char *buf1 = malloc(sizeof(char) * SIZE);
 	char *buf2 = malloc(sizeof(char) * SIZE);
 	char *res = malloc(sizeof(char) * SIZE);
+
+	char *old_buf1 = buf1;
+	char *old_buf2 = buf2;
+	char *old_res;
+
+
 	int count_digits;
 	int count;
+
 
 	count_digits = input_number(SIZE, buf1);
 	printf("count = %i\n", count_digits);
 	count = input_number(SIZE, buf2);
 	printf("count = %i\n", count);
+
 
 	output_number(count_digits, buf1);
 	output_number(count, buf2);
@@ -31,12 +39,18 @@ int main() {
 	buf1 = reverse_number(count_digits, buf1);
 	buf2 = reverse_number(count, buf2);
 	res = diff_number(count_digits, buf1, buf2);
+
+	old_res = res;
+
 	res = reverse_number(count_digits, res);
 
 	output_number(count_digits, res);
 
 	free(buf1);
 	free(buf2);
+	free(old_buf1);
+	free(old_buf2);
+	free(old_res);
 	free(res);
 
 	return 0;
