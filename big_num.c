@@ -76,7 +76,7 @@ void output_number(int count_digits, char *buf) {
 
 int input_number(int buf_size, char *buf) {
 	printf("Input big number: ");
-	scanf("%500s", buf);
+	scanf("%499s", buf);
 	int count_digits = 0;
 
 	// Преобразуем в число
