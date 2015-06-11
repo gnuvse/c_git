@@ -7,9 +7,9 @@ struct entry {
 };
 
 
-bool equal_strings(const char s1[], const char s2[]);
+bool compare_strings(const char s1[], const char s2[]);
 int lookup(const struct entry dictionary[], const char search[],
-		const int entries);
+		const int num_of_words);
 
 
 int main() {
@@ -26,13 +26,13 @@ int main() {
 		{"ajar", "partially opened"},
 	};
 	char word[15];
-	int entries = 10;
+	int num_of_words = 10;
 	int entry;
 
 	printf("Enter word: ");
 	scanf("%14s", word);
 
-	entry = lookup(dictionary, word, entries);
+	entry = lookup(dictionary, word, num_of_words);
 
 	if (entry)
 		printf("%s\n", dictionary[entry].definition);
@@ -44,28 +44,38 @@ int main() {
 }
 
 int lookup(const struct entry dictionary[], const char search[],
-		const int entries) {
+		const int num_of_words) {
 
-	for (int i = 0; i < entries; i++)
-		if (equal_strings(search, dictionary[i].word))
-			return i;
-	return -1;
+	int low = 0;
+	int high = num_of_words - 1;
+	int mid, res;
 
+	while(low <= high) {
+		mid = (low + high) / 2;
+		res = compare_strings(dictionary[mid].word, search);
+		if (res == -1)
+			low = mid + 1;
+		else if (res == 1)
+			high = mid - 1;
+		else
+			return mid;
+	}
+
+	return -1; // не найден
 }
 
 
-bool equal_strings(const char s1[], const char s2[]) {
+bool compare_strings(const char s1[], const char s2[]) {
 	int i = 0;
-	bool are_equal;
 
-	while (s1[i] == s2[i] && s1[i] != '\0')
+	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
 		i++;
 
-	if (s1[i] == '\0' && s2[i] == '\0')
-		are_equal = true;
+	if (s1[i] < s2[i])
+		return -1;
+	else if (s1[i] == s2[i])
+		return 0;
 	else
-		are_equal = false;
-
-	return are_equal;
+		return 1;
 }
 
