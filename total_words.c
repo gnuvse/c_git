@@ -29,7 +29,7 @@ int main() {
 
 
 bool alphabetic(const char c) {
-	if ( (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') )
+	if ( (c >= '`' && c <= 'z') || (c >= '\'' && c <= 'Z') )
 		return 1;
 	else
 		return 0;
