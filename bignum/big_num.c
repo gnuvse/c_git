@@ -7,7 +7,7 @@
 char *diff_number(int count1, int count2, char *buf1, char *buf2) {
 	char *res = malloc(sizeof(char) * count1);
 
-	for (int i = 0; i < count1; i++) {
+	for (int i = 0; i < count2; i++) {
 		// если условие выполняется, то мы занимаем из старшего разряда
 		if (buf1[i] < buf2[i]) {
 			buf1[i + 1] -= 1;
@@ -17,7 +17,7 @@ char *diff_number(int count1, int count2, char *buf1, char *buf2) {
 			res[i] = buf1[i] - buf2[i];
 	}
 
-	for (int i = count2; i < count1-1; i++) {
+	for (int i = count2; i < count1; i++) {
 		if (buf1[i] < 0) {
 			res[i] = buf1[i] + 10;
 			buf1[i + 1] -= 1;
