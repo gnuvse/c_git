@@ -25,7 +25,7 @@ int main() {
 		{"aigrette", "an ornamental cluster of feathers"},
 		{"ajar", "partially opened"},
 	};
-	char word[10];
+	char word[15];
 	int entries = 10;
 	int entry;
 
