@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "big_num.h"
+#include <string.h>
 
 
 // разность двух чисел
@@ -30,6 +31,9 @@ char *diff_number(int count1, int count2, char *buf1, char *buf2) {
 	return res;
 }
 
+int eq_number(int count1, const char *buf1, int count2, const char *buf2) {
+	return count1 == count2 && !memcmp(buf1, buf2, count1);
+}
 
 // Переворачиваем число, чтобы с первого разряда отнимать,
 // а не с последнего
