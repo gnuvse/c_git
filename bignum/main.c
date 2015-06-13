@@ -24,7 +24,7 @@ int main() {
 
 	char *buf1_reversed = reverse_number(count1, buf1);
 	char *buf2_reversed = reverse_number(count2, buf2);
-	char *res_diff = diff_number(count1, count2, buf1_reversed, buf2_reversed);
+	char *res_diff = diff_number(count1, buf1_reversed, count2, buf2_reversed);
 	char *res = reverse_number(count1, res_diff);
 
 	output_number(count1, res);

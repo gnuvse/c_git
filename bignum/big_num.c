@@ -5,8 +5,9 @@
 
 
 // разность двух чисел
-char *diff_number(int count1, int count2, char *buf1, char *buf2) {
+char *diff_number(int count1, char *buf1, int count2, char *buf2) {
 	char *res = malloc(sizeof(char) * count1);
+
 
 	for (int i = 0; i < count2; i++) {
 		// если условие выполняется, то мы занимаем из старшего разряда
@@ -30,6 +31,8 @@ char *diff_number(int count1, int count2, char *buf1, char *buf2) {
 
 	return res;
 }
+
+
 
 int eq_number(int count1, const char *buf1, int count2, const char *buf2) {
 	return count1 == count2 && !memcmp(buf1, buf2, count1);

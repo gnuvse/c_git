@@ -11,11 +11,11 @@ int test_diff_number__equal_length(void)
 	char b[] = {2, 9, 1};
 	int m = 3;
 
-	char *res = diff_number(n, m, a, b);
+	char *res = diff_number(n, a, m, b);
 
 	const char check[] = {5, 6, 2};
 
-	int ok = eq_number(n, res, 3, check);
+	int ok = eq_number(n, res, m, check);
 
 	free(res);
 
@@ -30,7 +30,7 @@ int test_diff_number__const_arg1(void)
 	char b[] = {2, 9};
 	int m = 2;
 
-	char *res = diff_number(n, m, a, b);
+	char *res = diff_number(n, a, m, b);
 	free(res);
 
 	const char check[] = {7, 5, 4};
@@ -48,7 +48,7 @@ int test_diff_number__const_arg2(void)
 	char b[] = {2, 9};
 	int m = 2;
 
-	char *res = diff_number(n, m, a, b);
+	char *res = diff_number(n, a, m, b);
 	free(res);
 
 	const char check[] = {2, 9};
