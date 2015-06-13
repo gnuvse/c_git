@@ -32,6 +32,35 @@ char *diff_number(int count1, char *buf1, int count2, char *buf2) {
 	return res;
 }
 
+/*int count_digits_in_number(char *buf) {
+	int count = 0;
+	while(*buf++)
+		count++;
+
+	printf("%i\n", count);
+	return count;
+}
+*/
+
+
+char *normalize_number(int count, char *res) {
+	int num_of_zeros = 0;
+	int i = 0;
+	while (res[i] == 0) {
+		num_of_zeros++;
+		i++;
+	}
+
+	int num_of_elem_without_zeros = count - num_of_zeros;
+
+	char *normalize_res = malloc(sizeof(char) * (num_of_elem_without_zeros));
+
+	for (int i = num_of_elem_without_zeros, j = 0; i < count; i++, j++)
+		normalize_res[j] = res[i];
+
+
+	return normalize_res;
+}
 
 
 int eq_number(int count1, const char *buf1, int count2, const char *buf2) {
