@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "big_num.h"
 #include <string.h>
+#include "big_num.h"
+
 
 
 // разность двух чисел
@@ -32,35 +33,37 @@ char *diff_number(int count1, char *buf1, int count2, char *buf2) {
 	return res;
 }
 
-/*int count_digits_in_number(char *buf) {
-	int count = 0;
-	while(*buf++)
-		count++;
 
-	printf("%i\n", count);
-	return count;
-}
-*/
-
-
+// На вход попадает число такого вида 0010
+// Это результат работы функции diff_number
+// normalize нормализует число и удаляет лишние нули
 char *normalize_number(int count, char *res) {
-	int num_of_zeros = 0;
+
+	// количество нулей в входном буфере
 	int i = 0;
-	while (res[i] == 0) {
-		num_of_zeros++;
+	int num_zeros = 0;
+	while(res[i] == 0)
 		i++;
+
+
+	if (i > 0) {
+		num_zeros = i;
 	}
 
-	int num_of_elem_without_zeros = count - num_of_zeros;
 
-	char *normalize_res = malloc(sizeof(char) * (num_of_elem_without_zeros));
+	char *normalize_res = malloc(sizeof(char) * (count - i));
 
-	for (int i = num_of_elem_without_zeros, j = 0; i < count; i++, j++)
+	for (int i = num_zeros, j = 0; i < count; i++, j++) {
 		normalize_res[j] = res[i];
+	}
 
+	// глобальная переменная получает кол-во символов
+	// в новом массиве
+	num_of_elem_without_zeros = count - i;
 
 	return normalize_res;
 }
+
 
 
 int eq_number(int count1, const char *buf1, int count2, const char *buf2) {

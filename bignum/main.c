@@ -26,12 +26,11 @@ int main() {
 	char *buf2_reversed = reverse_number(count2, buf2);
 	char *res_diff = diff_number(count1, buf1_reversed, count2, buf2_reversed);
 	char *res = reverse_number(count1, res_diff);
-
-
 	char *normalize_res = normalize_number(count1, res);
 
 
-	output_number(2, normalize_res);
+	output_number(num_of_elem_without_zeros, normalize_res);
+
 
 	free(buf1);
 	free(buf2);
