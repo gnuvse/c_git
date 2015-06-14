@@ -35,35 +35,24 @@ char *diff_number(int count1, char *buf1, int count2, char *buf2) {
 
 
 // На вход попадает число такого вида 0010
-// Это результат работы функции diff_number
-// normalize нормализует число и удаляет лишние нули
+// Это результат работы неважно какой функции. И у тебя это была не diff_number, а reverse_number
+// normalize нормализует число: удаляет лишние ведущие нули
 char *normalize_number(int count, char *res, int *new_count) {
-
-	// количество нулей в входном буфере
-	int i = 0;
+	// количество нулей в начале входного буфера
 	int num_zeros = 0;
-	while(res[i] == 0)
-		i++;
+	while(res[num_zeros] == 0)
+		num_zeros++;
 
-
-	if (i > 0) {
-		num_zeros = i;
-	}
-
-
-	char *normalize_res = malloc(sizeof(char) * (count - i));
+	char *normalize_res = malloc(sizeof(char) * (count - num_zeros));
 
 	for (int i = num_zeros, j = 0; i < count; i++, j++) {
 		normalize_res[j] = res[i];
 	}
 
-	// глобальная переменная получает кол-во символов
-	// в новом массиве
-	*new_count = count - i;
+	*new_count = count - num_zeros;
 
 	return normalize_res;
 }
-
 
 
 int eq_number(int count1, const char *buf1, int count2, const char *buf2) {
