@@ -35,31 +35,21 @@ char *diff_number(int count1, char *buf1, int count2, char *buf2) {
 
 
 // На вход попадает число такого вида 0010
-// Это результат работы функции diff_number
-// normalize нормализует число и удаляет лишние нули
-char *normalize_number(int count, char *res, int *new_count) {
+// normalize нормализует число и удаляет ведущие нули
+char *normalize_number(int count, char *res, int *count_without_zeros) {
 
-	// количество нулей в входном буфере
-	int i = 0;
+	// количество нулей в начале входном буфере
 	int num_zeros = 0;
-	while(res[i] == 0)
-		i++;
+	while(res[num_zeros] == 0)
+		num_zeros++;
 
 
-	if (i > 0) {
-		num_zeros = i;
-	}
-
-
-	char *normalize_res = malloc(sizeof(char) * (count - i));
+	*count_without_zeros = count - num_zeros;
+	char *normalize_res = malloc(sizeof(char) * (*count_without_zeros));
 
 	for (int i = num_zeros, j = 0; i < count; i++, j++) {
 		normalize_res[j] = res[i];
 	}
-
-	// глобальная переменная получает кол-во символов
-	// в новом массиве
-	*new_count = count - i;
 
 	return normalize_res;
 }
