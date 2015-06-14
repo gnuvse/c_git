@@ -58,6 +58,34 @@ int test_diff_number__const_arg2(void)
 	return MUST_BE_TRUE(ok);
 }
 
+int test_normalize_number__result(void)
+{
+	char a[] = {0, 0, 0, 1};
+	int n = 4;
+
+	char b[] = {0, 9, 9};
+	int m = 3;
+
+	int num_of_elem_without_zeros;
+
+
+	char *res =  diff_number(n, a, m, b);
+	char *res_revers = reverse_number(n, res);
+	char *normalize_res = normalize_number(n, res_revers, &num_of_elem_without_zeros);
+	free(res);
+	free(res_revers);
+
+	const char check[] = {1, 0};
+
+
+	int ok = eq_number(num_of_elem_without_zeros, normalize_res, 2, check);
+	free(normalize_res);
+
+
+	return MUST_BE_TRUE(ok);
+}
+
+
 
 
 int main()
@@ -67,6 +95,7 @@ int main()
 	RUN_TEST(test_diff_number__equal_length);
 	RUN_TEST(test_diff_number__const_arg1);
 	RUN_TEST(test_diff_number__const_arg2);
+	RUN_TEST(test_normalize_number__result);
 
 	FINISH_TEST();
 
