@@ -60,20 +60,13 @@ int test_diff_number__const_arg2(void)
 
 int test_normalize_number__result(void)
 {
-	char a[] = {0, 0, 0, 1};
+	char a[] = {0, 0, 1, 0};
 	int n = 4;
-
-	char b[] = {0, 9, 9};
-	int m = 3;
 
 	int num_of_elem_without_zeros;
 
 
-	char *res =  diff_number(n, a, m, b);
-	char *res_revers = reverse_number(n, res);
-	char *normalize_res = normalize_number(n, res_revers, &num_of_elem_without_zeros);
-	free(res);
-	free(res_revers);
+	char *normalize_res = normalize_number(n, a, &num_of_elem_without_zeros);
 
 	const char check[] = {1, 0};
 
