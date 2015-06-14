@@ -37,7 +37,7 @@ char *diff_number(int count1, char *buf1, int count2, char *buf2) {
 // На вход попадает число такого вида 0010
 // Это результат работы функции diff_number
 // normalize нормализует число и удаляет лишние нули
-char *normalize_number(int count, char *res) {
+char *normalize_number(int count, char *res, int *new_count) {
 
 	// количество нулей в входном буфере
 	int i = 0;
@@ -59,7 +59,7 @@ char *normalize_number(int count, char *res) {
 
 	// глобальная переменная получает кол-во символов
 	// в новом массиве
-	num_of_elem_without_zeros = count - i;
+	*new_count = count - i;
 
 	return normalize_res;
 }
