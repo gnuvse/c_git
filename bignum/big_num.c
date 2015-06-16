@@ -36,22 +36,21 @@ char *diff_number(int count1, char *buf1, int count2, char *buf2) {
 
 // На вход попадает число такого вида 0010
 // normalize нормализует число и удаляет ведущие нули
-char *normalize_number(int count, char *res, int *count_without_zeros) {
+int normalize_number(int count, char *res) {
 
 	// количество нулей в начале входном буфере
 	int num_zeros = 0;
 	while(res[num_zeros] == 0)
 		num_zeros++;
 
+	// перемещаем указатель на первое вхождение цифры
+	// 0010
+	// ^
+	res += num_zeros;
+	// 0010
+	//   ^
 
-	*count_without_zeros = count - num_zeros;
-	char *normalize_res = malloc(sizeof(char) * (*count_without_zeros));
-
-	for (int i = num_zeros, j = 0; i < count; i++, j++) {
-		normalize_res[j] = res[i];
-	}
-
-	return normalize_res;
+	return count - num_zeros;
 }
 
 
@@ -73,8 +72,8 @@ char *reverse_number(int count_digits, char *buf) {
 
 
 
-void output_number(int count_digits, char *buf) {
-	for (int i = 0; i < count_digits; i++)
+void output_number(int count_digits, char *buf, int position) {
+	for (int i = position; i < count_digits; i++)
 		printf("%i", buf[i]);
 
 	printf("\n");
@@ -83,6 +82,7 @@ void output_number(int count_digits, char *buf) {
 
 
 int input_number(int buf_size, char *buf) {
+
 	printf("Input big number: ");
 	scanf("%499s", buf);
 	int count_digits = 0;
@@ -95,6 +95,7 @@ int input_number(int buf_size, char *buf) {
 	// Считаем количество цифр в числе
 	while (*buf++ != -48)
 		count_digits++;
+
 
 	return count_digits;
 }
