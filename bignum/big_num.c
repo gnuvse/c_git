@@ -36,21 +36,15 @@ char *diff_number(int count1, char *buf1, int count2, char *buf2) {
 
 // На вход попадает число такого вида 0010
 // normalize нормализует число и удаляет ведущие нули
-int normalize_number(int count, char *res) {
+int normalize_number(char *res) {
 
 	// количество нулей в начале входном буфере
 	int num_zeros = 0;
 	while(res[num_zeros] == 0)
 		num_zeros++;
 
-	// перемещаем указатель на первое вхождение цифры
-	// 0010
-	// ^
-	res += num_zeros;
-	// 0010
-	//   ^
 
-	return count - num_zeros;
+	return num_zeros;
 }
 
 
@@ -73,6 +67,9 @@ char *reverse_number(int count_digits, char *buf) {
 
 
 void output_number(int count_digits, char *buf, int position) {
+	//if (position < 0)
+	//	position = 0;
+
 	for (int i = position; i < count_digits; i++)
 		printf("%i", buf[i]);
 

@@ -27,8 +27,8 @@ int main() {
 	char *res_diff = diff_number(count1, buf1_reversed, count2, buf2_reversed);
 	char *res = reverse_number(count1, res_diff);
 
-	position = normalize_number(count1, res);
 
+	position = normalize_number(res);
 
 	output_number(count1, res, position);
 
